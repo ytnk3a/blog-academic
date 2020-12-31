@@ -1,0 +1,277 @@
+#+title: Hugoをorg-modeから作る時のサンプルフォーマット
+#+description: データサイエンスを学ぶ上で、必要な言語をまとめてブログで記載するために
+#+date: 2020-12-30
+#+slug: hugo-with-org
+#+tags[]: programming org hugo
+#+categories[]: programming
+#+toc: true
+#+HUGO_BASE_DIR: ~/Documents/blog_academic_02/
+#+HUGO_SECTION: post
+
+* イントロダクション H1
+** 日本語のサンプル文章 H2
+   表示の仕方の確認1 <- インデント
+
+** 日本語のサンプル
+
+サンプルテキストとして、書いてみます。初めてのブログや技術メモを書くに
+あたり、org-modeとHUGOを採用してみました。
+慣れない点もありながら、色々と書いていきたいと思います。
+
+* サンプルフォーマット
+** 文字装飾
+*** 太字
+    *bold* 
+
+*** イタリック
+    /italic/
+
+*** 下線
+    _underline_
+
+*** 取り消し線
+    +strikethrogh+
+*** コード
+    ~code~
+
+*** 逐語
+    =verbtim=
+
+*** 上付き
+    hoge^{super}
+
+*** 下付き
+    hoge_{sub}
+
+*** ギリシャ文字
+    \alpha
+
+** リストやチェックボックスに関して
+- [ ] TODO
+- [x] DONE
+
+
+** 数式
+*** インライン
+    数式 \(e = mc^{2} \) を含んだ文章
+
+    
+*** ブロックでの表示
+    ~\[ y = f(x) \]~
+    \[ y = f(x) \] 
+
+
+\begin{equation}
+\label{eq:1}
+C = W\log_{2} (1+\mathrm{SNR})
+\end{equation}
+
+
+
+LaTeX formatted equation: $E = -J \sum_{i=1}^N s_i s_{i+1}$ written by ~$E = -J \sum_{i=1}^N s_i s_{i+1}$~
+
+
+LaTeX formatted equation: \(E = -J \sum_{i=1}^N s_i s_{i+1}\) written
+by ~\(E = -J \sum_{i=1}^N s_i s_{i+1}\)~
+
+
+
+* プログラミングのアウトプット
+
+** R
+
+*** 出力結果
+
+#+BEGIN_SRC R -n
+  x <- 1:10
+  mean(sqrt(x))
+#+END_SRC
+
+
+#+results:
+: 2.24682781862041
+
+*** テーブル
+#+BEGIN_SRC R -n
+head(iris)
+#+END_SRC
+
+| 5.1 | 3.5 | 1.4 | 0.2 | setosa |
+| 4.9 |   3 | 1.4 | 0.2 | setosa |
+| 4.7 | 3.2 | 1.3 | 0.2 | setosa |
+| 4.6 | 3.1 | 1.5 | 0.2 | setosa |
+|   5 | 3.6 | 1.4 | 0.2 | setosa |
+| 5.4 | 3.9 | 1.7 | 0.4 | setosa |
+
+
+*** 図の出力
+
+#+BEGIN_SRC R -n:results output graphics :file org-r-random.png :width 400 :height 400
+p <- plot(matrix(rnorm(100), ncol=2), type="b")
+p
+#+END_SRC
+
+#+RESULTS:
+
+
+[[file:./org-r-random.png]]
+
+
+#+BEGIN_SRC R -n:results output :exports both :session
+  n <- 50
+  x <- seq(1, n)
+  a.true <- 3
+  print(a.true)
+  print(x)
+#+END_SRC
+
+#+RESULTS:
+: 
+: [1] 3
+: 
+:  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+: [26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
+
+
+
+#+BEGIN_SRC R -n:results output :exports both :session
+n <- 50
+x <- seq(1, n)
+a.true <- 3
+b.true <- 1.5
+y.true <- a.true + b.true * x
+s.true <- 17.3
+y <- y.true + s.true * rnorm(n)
+out1 <- lm(y ~ x)
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC R -n:results output :exports results :session
+getwd()
+#+END_SRC
+
+#+RESULTS:
+: [1] "/Users/yuu/Documents/blog_academic/content/post"
+
+#+BEGIN_SRC R -n:results output :exports results :session
+summary(out1)
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+
+Call:
+lm(formula = y ~ x)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-36.073 -10.290   1.297   8.866  36.455 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -9.4854     4.9638  -1.911    0.062 .  
+x             1.8893     0.1694  11.152 6.33e-15 ***
+---
+codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 17.29 on 48 degrees of freedom
+Multiple R-squared:  0.7215,	Adjusted R-squared:  0.7157 
+F-statistic: 124.4 on 1 and 48 DF,  p-value: 6.333e-15
+#+end_example
+
+
+#+begin_src R -n :session *R* :results output graphics :file test1.png :exports both
+ boxplot(islands)
+#+end_src
+[[file:./test1.png]]
+
+#+begin_src R -n:session *R* :results output graphics :file test1.png :exports both
+  boxplot(islands)
+#+end_src
+
+#+RESULTS:
+
+[[file:./test1.png]]  
+
+
+
+#+begin_src R -n:session *R* :results output graphics :file test2.png :exports both
+  library("ggplot2")
+  ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+  geom_point()
+#+END_SRC
+[[file:./test2.png]] <- inline
+
+
+** Python
+
+#+begin_src python
+def foo(x):
+  if x>0:
+    return x+1
+
+  else:
+    return x-1
+
+return foo(5)
+#+end_src
+
+#+RESULTS:
+: 6
+
+#+begin_src python :session :results file
+import matplotlib
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(3,2))
+plt.plot([1,3,2])
+fig.tight_layout()
+
+fname = 'myfig.png'
+plt.savefig(fname)
+# fname # return this to org-mode
+#+end_src
+
+[[file:./myfig.png]]
+
+
+
+
+
+** julia
+
+#+begin_src ess-julia :results output :exports both
+println("Hello world!")
+#+end_src
+
+#+RESULTS:
+: Hello world!
+
+
+#+begin_src ess-julia :results output :exports both :session none
+print(2+3)
+#+end_src
+
+#+RESULTS:
+: 5
+
+
+#+BEGIN_SRC ess-julia -n:results output graphics :file org-julia-random.png :exports both :width 400 :height 400
+using Plots
+# plot some data
+#plot([cumsum(rand(500) .- 0.5), cumsum(rand(500) .- 0.5)])
+scatter(rand(100), markersize = 6, c = :red)
+#+END_SRC
+
+[[file:./org-julia-random.png]]
+
+
+#+BEGIN_SRC ess-julia -n:results output graphics :file org-julia-random-02.png :exports both :width 400 :height 400
+using Plots
+plot([cumsum(rand(500) .- 0.5), cumsum(rand(500) .- 0.5)])
+#+END_SRC
+
+#+RESULTS:
+
+[[file:./org-julia-random-02.png]]
