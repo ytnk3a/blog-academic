@@ -4,9 +4,11 @@
 #+slug: hugo-with-org
 #+tags[]: programming org hugo
 #+categories[]: programming
-#+toc: true
 #+HUGO_BASE_DIR: ~/Documents/blog_academic_02/
 #+HUGO_SECTION: post
+#+HUGO_CODE_FENCE: nil
+#+hugo_custom_front_matter: :toc true
+
 
 * イントロダクション H1
 ** 日本語のサンプル文章 H2
@@ -75,24 +77,26 @@ LaTeX formatted equation: \(E = -J \sum_{i=1}^N s_i s_{i+1}\) written
 by ~\(E = -J \sum_{i=1}^N s_i s_{i+1}\)~
 
 
+{{% callout note %}}
+A Markdown callout is useful for displaying notices, hints, or definitions to your readers.
+{{% /callout %}}
+
 
 * プログラミングのアウトプット
 
 ** R
-
 *** 出力結果
 
-#+BEGIN_SRC R -n
-  x <- 1:10
-  mean(sqrt(x))
+#+BEGIN_SRC R
+x <- 1:10
+mean(sqrt(x))
 #+END_SRC
-
 
 #+results:
 : 2.24682781862041
 
 *** テーブル
-#+BEGIN_SRC R -n
+#+BEGIN_SRC R
 head(iris)
 #+END_SRC
 
@@ -106,23 +110,22 @@ head(iris)
 
 *** 図の出力
 
-#+BEGIN_SRC R -n:results output graphics :file org-r-random.png :width 400 :height 400
+#+BEGIN_SRC R :results output graphics :file org-r-random.png :width 400 :height 400
 p <- plot(matrix(rnorm(100), ncol=2), type="b")
 p
 #+END_SRC
 
 #+RESULTS:
-
-
 [[file:./org-r-random.png]]
 
 
-#+BEGIN_SRC R -n:results output :exports both :session
-  n <- 50
-  x <- seq(1, n)
-  a.true <- 3
-  print(a.true)
-  print(x)
+
+#+BEGIN_SRC R :results output :exports both :session
+n <- 50
+x <- seq(1, n)
+a.true <- 3
+print(a.true)
+print(x)
 #+END_SRC
 
 #+RESULTS:
@@ -134,7 +137,7 @@ p
 
 
 
-#+BEGIN_SRC R -n:results output :exports both :session
+#+BEGIN_SRC R :results output :exports both :session
 n <- 50
 x <- seq(1, n)
 a.true <- 3
@@ -148,14 +151,14 @@ out1 <- lm(y ~ x)
 #+RESULTS:
 
 
-#+BEGIN_SRC R -n:results output :exports results :session
+#+BEGIN_SRC R :results output :exports both :session
 getwd()
 #+END_SRC
 
 #+RESULTS:
 : [1] "/Users/yuu/Documents/blog_academic/content/post"
 
-#+BEGIN_SRC R -n:results output :exports results :session
+#+BEGIN_SRC R :results output :exports results :session
 summary(out1)
 #+END_SRC
 
@@ -182,8 +185,8 @@ F-statistic: 124.4 on 1 and 48 DF,  p-value: 6.333e-15
 #+end_example
 
 
-#+begin_src R -n :session *R* :results output graphics :file test1.png :exports both
- boxplot(islands)
+#+begin_src R :session *R* :results output graphics :file test1.png :exports both
+boxplot(islands)
 #+end_src
 [[file:./test1.png]]
 
@@ -197,9 +200,10 @@ F-statistic: 124.4 on 1 and 48 DF,  p-value: 6.333e-15
 
 
 
-#+begin_src R -n:session *R* :results output graphics :file test2.png :exports both
-  library("ggplot2")
-  ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+#+begin_src R :session *R* :results output graphics :file test2.png :exports both
+
+library("ggplot2")
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
   geom_point()
 #+END_SRC
 [[file:./test2.png]] <- inline
@@ -222,6 +226,7 @@ return foo(5)
 : 6
 
 #+begin_src python :session :results file
+
 import matplotlib
 import matplotlib.pyplot as plt
 fig=plt.figure(figsize=(3,2))
@@ -257,7 +262,7 @@ print(2+3)
 : 5
 
 
-#+BEGIN_SRC ess-julia -n:results output graphics :file org-julia-random.png :exports both :width 400 :height 400
+#+BEGIN_SRC ess-julia :results output graphics :file org-julia-random.png :exports both :width 400 :height 400
 using Plots
 # plot some data
 #plot([cumsum(rand(500) .- 0.5), cumsum(rand(500) .- 0.5)])
@@ -267,7 +272,7 @@ scatter(rand(100), markersize = 6, c = :red)
 [[file:./org-julia-random.png]]
 
 
-#+BEGIN_SRC ess-julia -n:results output graphics :file org-julia-random-02.png :exports both :width 400 :height 400
+#+BEGIN_SRC ess-julia :results output graphics :file org-julia-random-02.png :exports both :width 400 :height 400
 using Plots
 plot([cumsum(rand(500) .- 0.5), cumsum(rand(500) .- 0.5)])
 #+END_SRC

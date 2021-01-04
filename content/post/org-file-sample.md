@@ -4,6 +4,7 @@ author = ["YusukeTANAKA"]
 description = "データサイエンスを学ぶ上で、必要な言語をまとめてブログで記載するために"
 date = 2020-12-30
 draft = false
+toc = true
 +++
 
 ## イントロダクション H1 {#イントロダクション-h1}
@@ -101,6 +102,10 @@ LaTeX formatted equation: \\(E = -J \sum\_{i=1}^N s\_i s\_{i+1}\\) written by `$
 LaTeX formatted equation: \\(E = -J \sum\_{i=1}^N s\_i s\_{i+1}\\) written
 by `\(E = -J \sum_{i=1}^N s_i s_{i+1}\)`
 
+{{% callout note %}}
+A Markdown callout is useful for displaying notices, hints, or definitions to your readers.
+{{% /callout %}}
+
 
 ## プログラミングのアウトプット {#プログラミングのアウトプット}
 
@@ -110,7 +115,7 @@ by `\(E = -J \sum_{i=1}^N s_i s_{i+1}\)`
 
 #### 出力結果 {#出力結果}
 
-{{< highlight R "linenos=table, linenostart=1" >}}
+{{< highlight R >}}
 x <- 1:10
 mean(sqrt(x))
 {{< /highlight >}}
@@ -118,7 +123,7 @@ mean(sqrt(x))
 
 #### テーブル {#テーブル}
 
-{{< highlight R "linenos=table, linenostart=1" >}}
+{{< highlight R >}}
 head(iris)
 {{< /highlight >}}
 
@@ -133,14 +138,12 @@ head(iris)
 
 #### 図の出力 {#図の出力}
 
-{{< highlight R "linenos=table, linenostart=1" >}}
+{{< highlight R >}}
 p <- plot(matrix(rnorm(100), ncol=2), type="b")
 p
 {{< /highlight >}}
 
-{{< figure src="./org-r-random.png" >}}
-
-{{< highlight R "linenos=table, linenostart=1" >}}
+{{< highlight R >}}
 n <- 50
 x <- seq(1, n)
 a.true <- 3
@@ -156,7 +159,7 @@ print(x)
 [26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
 ```
 
-{{< highlight R "linenos=table, linenostart=1" >}}
+{{< highlight R >}}
 n <- 50
 x <- seq(1, n)
 a.true <- 3
@@ -167,8 +170,12 @@ y <- y.true + s.true * rnorm(n)
 out1 <- lm(y ~ x)
 {{< /highlight >}}
 
+{{< highlight R >}}
+getwd()
+{{< /highlight >}}
+
 ```text
-[1] "/Users/yuu/Documents/blog_academic/content/org"
+[1] "/Users/yuu/Documents/blog_academic_02/content/org/2020-12-31"
 ```
 
 ```text
@@ -177,45 +184,46 @@ Call:
 lm(formula = y ~ x)
 
 Residuals:
-   Min     1Q Median     3Q    Max
--27.26 -17.07  -3.54  12.54  49.89
+    Min      1Q  Median      3Q     Max
+-36.607 -13.768   1.842  11.758  32.490
 
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)
-(Intercept)   3.3514     5.7985   0.578    0.566
-x             1.4390     0.1979   7.271 2.82e-09 ***
+(Intercept)   0.2007     4.9237   0.041    0.968
+x             1.7409     0.1680  10.360 7.87e-14 ***
 ---
 codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 20.19 on 48 degrees of freedom
-Multiple R-squared:  0.5242,	Adjusted R-squared:  0.5142
-F-statistic: 52.87 on 1 and 48 DF,  p-value: 2.824e-09
+Residual standard error: 17.15 on 48 degrees of freedom
+Multiple R-squared:  0.691,	Adjusted R-squared:  0.6845
+F-statistic: 107.3 on 1 and 48 DF,  p-value: 7.868e-14
 ```
 
+{{< highlight R >}}
+boxplot(islands)
+{{< /highlight >}}
+
+{{< figure src="/ox-hugo/test1.png" >}}
+
 {{< highlight R "linenos=table, linenostart=1" >}}
 boxplot(islands)
 {{< /highlight >}}
 
-{{< figure src="./test1.png" >}}
+{{< figure src="/ox-hugo/test1.png" >}}
 
-{{< highlight R "linenos=table, linenostart=1" >}}
-boxplot(islands)
-{{< /highlight >}}
+{{< highlight R >}}
 
-{{< figure src="./test1.png" >}}
-
-{{< highlight R "linenos=table, linenostart=1" >}}
 library("ggplot2")
 ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
-geom_point()
+  geom_point()
 {{< /highlight >}}
 
-![](./test2.png) <- inline
+![](/ox-hugo/test2.png) <- inline
 
 
 ### Python {#python}
 
-```python
+{{< highlight python >}}
 def foo(x):
   if x>0:
     return x+1
@@ -224,9 +232,10 @@ def foo(x):
     return x-1
 
 return foo(5)
-```
+{{< /highlight >}}
 
-```python
+{{< highlight python >}}
+
 import matplotlib
 import matplotlib.pyplot as plt
 fig=plt.figure(figsize=(3,2))
@@ -236,30 +245,30 @@ fig.tight_layout()
 fname = 'myfig.png'
 plt.savefig(fname)
 # fname # return this to org-mode
-```
+{{< /highlight >}}
 
 {{< figure src="./myfig.png" >}}
 
 
 ### julia {#julia}
 
-```ess-julia
+{{< highlight ess-julia >}}
 println("Hello world!")
-```
+{{< /highlight >}}
 
 ```text
 Hello world!
 ```
 
-```ess-julia
+{{< highlight ess-julia >}}
 print(2+3)
-```
+{{< /highlight >}}
 
 ```text
 5
 ```
 
-{{< highlight ess-julia "linenos=table, linenostart=1" >}}
+{{< highlight ess-julia >}}
 using Plots
 # plot some data
 #plot([cumsum(rand(500) .- 0.5), cumsum(rand(500) .- 0.5)])
@@ -268,7 +277,7 @@ scatter(rand(100), markersize = 6, c = :red)
 
 {{< figure src="/ox-hugo/org-julia-random.png" >}}
 
-{{< highlight ess-julia "linenos=table, linenostart=1" >}}
+{{< highlight ess-julia >}}
 using Plots
 plot([cumsum(rand(500) .- 0.5), cumsum(rand(500) .- 0.5)])
 {{< /highlight >}}

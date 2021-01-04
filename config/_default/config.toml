@@ -18,10 +18,6 @@ copyright = ""
 
 ############################
 ## Advanced options below ##
-############################
-
-# Get last modified date for content from Git?
-enableGitInfo = false
 
 # Default language to use (if you setup multilingual support)
 defaultContentLanguage = "ja"
@@ -62,7 +58,14 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
     [markup.goldmark.renderer]
       unsafe = true  # Enable user to embed HTML snippets in Markdown content.
   [markup.highlight]
+    # codeFences = false  # Disable Hugo's code highlighter as it conflicts with Academic's highligher.
     codeFences = false  # Disable Hugo's code highlighter as it conflicts with Academic's highligher.
+    pygmentsUseClasses = true
+    pygmentsCodefences = true
+    lineNoStart = 1
+    noClasses = true
+    style = "github"
+    
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 3
@@ -106,8 +109,8 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
     weight = 20.0
 
 # Install Wowchemy
-[module]
-  [[module.imports]]
-    path = "github.com/wowchemy/wowchemy-hugo-modules/wowchemy"
-  [[module.imports]]
-    path = "github.com/wowchemy/wowchemy-hugo-modules/netlify-cms-academic"
+#[module]
+#  [[module.imports]]
+#    path = "github.com/wowchemy/wowchemy-hugo-modules/wowchemy"
+#  [[module.imports]]
+#    path = "github.com/wowchemy/wowchemy-hugo-modules/netlify-cms-academic"
