@@ -4,7 +4,7 @@
 #+slug: hugo-with-org
 #+tags[]: programming org hugo
 #+categories[]: programming
-#+HUGO_BASE_DIR: ~/Documents/blog_academic_02/
+#+HUGO_BASE_DIR: ~/Documents/blog_academic/
 #+HUGO_SECTION: post
 #+HUGO_CODE_FENCE: nil
 #+hugo_custom_front_matter: :toc true

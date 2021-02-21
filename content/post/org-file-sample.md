@@ -152,9 +152,7 @@ print(x)
 {{< /highlight >}}
 
 ```text
-
 [1] 3
-
  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
 [26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
 ```
@@ -175,7 +173,7 @@ getwd()
 {{< /highlight >}}
 
 ```text
-[1] "/Users/yuu/Documents/blog_academic_02/content/org/2020-12-31"
+[1] "/Users/yuu/Documents/blog_academic/content/org/factor-analysis-01"
 ```
 
 ```text
@@ -184,19 +182,19 @@ Call:
 lm(formula = y ~ x)
 
 Residuals:
-    Min      1Q  Median      3Q     Max
--36.607 -13.768   1.842  11.758  32.490
+   Min     1Q Median     3Q    Max
+-36.88 -13.17  -0.41  15.92  31.92
 
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)
-(Intercept)   0.2007     4.9237   0.041    0.968
-x             1.7409     0.1680  10.360 7.87e-14 ***
+(Intercept)   5.4452     5.1461   1.058    0.295
+x             1.4497     0.1756   8.254 9.12e-11 ***
 ---
-codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 17.15 on 48 degrees of freedom
-Multiple R-squared:  0.691,	Adjusted R-squared:  0.6845
-F-statistic: 107.3 on 1 and 48 DF,  p-value: 7.868e-14
+Residual standard error: 17.92 on 48 degrees of freedom
+Multiple R-squared:  0.5867,	Adjusted R-squared:  0.5781
+F-statistic: 68.13 on 1 and 48 DF,  p-value: 9.124e-11
 ```
 
 {{< highlight R >}}
@@ -247,7 +245,7 @@ plt.savefig(fname)
 # fname # return this to org-mode
 {{< /highlight >}}
 
-{{< figure src="./myfig.png" >}}
+{{< figure src="/ox-hugo/myfig.png" >}}
 
 
 ### julia {#julia}
@@ -256,17 +254,9 @@ plt.savefig(fname)
 println("Hello world!")
 {{< /highlight >}}
 
-```text
-Hello world!
-```
-
 {{< highlight ess-julia >}}
 print(2+3)
 {{< /highlight >}}
-
-```text
-5
-```
 
 {{< highlight ess-julia >}}
 using Plots

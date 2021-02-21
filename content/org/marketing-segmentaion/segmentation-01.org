@@ -1,0 +1,18 @@
+#+title: マーケティングにおけるセグメンテーションに使われる分析手法に関して
+#+description: データサイエンスを学ぶ上で、必要な言語をまとめてブログで記載するために
+#+date: 2021-01-30
+#+slug: hugo-with-org
+#+tags[]: k-means k-modes hclust som  t-sne umap
+#+categories[]: marketing marketing-science
+#+HUGO_BASE_DIR: ~/Documents/blog_academic/
+#+HUGO_SECTION: post
+#+HUGO_CODE_FENCE: nil
+#+hugo_custom_front_matter: :toc true
+
+
+
+* イントロダクション
+** チャプター２
+** チャプター１
+
+* セグメンテーションとは

@@ -5,31 +5,54 @@
 /* https://github.com/rstudio/blogdown/blob/master/docs/02-hugo.Rmd */
 
 
-pre, code {
+/*
+pre, code { // set up for pre & code
 	color: #4A7E86;
-	background-color: #fff;
-	//padding-left: .5em;
-	padding-right: .5em;
+	background-color: #e7edf3;
+	border-radius: .5px; // undo rounded corners
+  border-radius: 3px; // 角丸
+ }
+ */
+
+code { 
+  background: #F5F5F5;
+  color: #444;
+  padding-left: .5em;
+  padding-right: .5em;
+  border-radius: 3px; /*undo rounded corners*/
+}
+
+pre { // result 
+  // padding-left: 0px;
+  // padding-right: 0px;
+  padding: 1em;
+
+  border: 1px solid #fff;
+  // box-shadow: 5px 5px 5px #eee;
+  padding: 0.25em;
+  background: #F5F5F5;
+  background-color: #F5F5F5;
+  //color: #444;
+  color: #D3D3D3;
+  overflow-x: auto;
+  border-radius: 5px; /*undo rounded corners*/
  }
   
- pre {
-   border: 1px solid #fff;
-   box-shadow: 5px 5px 5px #eee;
-   padding: 0.25em;
-   background: #fff;
-   overflow-x: auto;
-   border-radius: 0px; /*undo rounded corners*/
+  
+pre code { 
+  display: block;
+  padding: 1em;
+  color: #444;
+  // background: none; 
+  background: #F5F5F5;
+  background-color: #F5F5F5;
+  font-size: 0.8rem;
+  border-radius: 5px; /*undo rounded corners*/
  }
-  
-  
- pre code { 
-   background: none; 
-   font-size: 0.8rem;
- }//
 
 
 rticle-container {
-max-width: 1000px;
+  max-width: 1000px;
 }
 
 
